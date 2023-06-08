@@ -2,7 +2,7 @@ import axios from 'axios'
 import {get } from '../request/index'
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000/wyy'
+    baseURL: 'https://music-backend-rho.vercel.app/wyy'
 })
 
 export function getRecommend() {

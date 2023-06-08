@@ -73,7 +73,7 @@ import { useRouter } from 'vue-router';
     // })
     getRecommend().then(res => {
         console.log('bannerResult',res);
-        images.value = res.banners;
+        images.value = res.data.banners;
         // albums.value = res.albums;
     })
     getAlbumList().then(res => {

@@ -10,5 +10,6 @@ export function getRecommend() {
     return instance.get('/banner')
 }
 export function getAlbumList() {
-    return get('/personalized?limit=30')
+    // return get('/personalized?limit=30')
+    return instance.get('/personalized')
 }

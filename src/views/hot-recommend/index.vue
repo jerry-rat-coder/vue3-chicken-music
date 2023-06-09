@@ -77,8 +77,8 @@ import { useRouter } from 'vue-router';
         // albums.value = res.albums;
     })
     getAlbumList().then(res => {
-      // console.log(res);
-      albums.value = res.result;
+      console.log('albumsData',res);
+      albums.value = res.data.result;
     })
     
 

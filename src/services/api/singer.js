@@ -1,5 +1,5 @@
 import {get } from '../request/index'
-
+import axios from 'axios'
 const instance = axios.create({
     baseURL: 'https://music-backend-rho.vercel.app/wyy'
 })
@@ -10,5 +10,6 @@ export function getSingerList() {
 }
 
 export function getSingerDetail(id) {
-    return get(`/artist/songs?id=${id}&limit=100`)
+    // return get(`/artist/songs?id=${id}&limit=100`)
+    return instance.get(`/artist/songs`)
 }

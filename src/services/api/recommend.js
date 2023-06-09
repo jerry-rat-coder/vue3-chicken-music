@@ -8,13 +8,9 @@ const instance = axios.create({
 
 export function getRecommend() {
     // return get('/getRecommend')
-    return instance.get('/banner')
+    return instance.get('/banner').then(res => res.data)
 }
 export function getAlbumList() {
     // return get('/personalized?limit=30')
-    return instance.get('/personalized', {
-        params: {
-            limit: 30
-        }
-    })
+    return instance.get('/personalized?limit=30').then(res => res.data)
 }

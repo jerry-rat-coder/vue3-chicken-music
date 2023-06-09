@@ -20,7 +20,7 @@ export default function useGetSongData() {
                     //请求 歌曲 url
                     const ret = await getSongUrl(id);
                     // console.log('ret',ret)
-                    songData.songUrl = ret.data.data[0].url;
+                    songData.songUrl = ret.data[0].url;
                     return songData;
                     // console.log(this.currentSongBaseInfo);
                 } else {

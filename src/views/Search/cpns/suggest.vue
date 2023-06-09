@@ -131,7 +131,7 @@
           manualLoading.value = false
         }
       }
-    function checkMore() {
+    function checkMore(data) {
       if (!data.songs.length || (page.value + 1) * 30 >= data.songCount) {
         hasMore.value = false;
         console.log("没有更多了");

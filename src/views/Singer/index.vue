@@ -31,7 +31,7 @@ import useShowCpnsStore from "@/store/modules/showComonents";
 
     getSingerList().then(res => {
       // console.log(res.artists);
-      initSingerList(res.artists);
+      initSingerList(res.data.artists);
     })
 
 

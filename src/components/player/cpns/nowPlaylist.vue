@@ -77,6 +77,7 @@
 
 <script setup>
 import scroll from '@/components/Scroll/Scroll.vue'
+import addSong from '@/components/AddSong/add-song.vue';
 
 import { ref, computed, nextTick, watch } from 'vue';
 
@@ -85,7 +86,6 @@ import { ref, computed, nextTick, watch } from 'vue';
       import usePlayMode from '@/hooks/player/use-playMode';
       import useFavorite from '@/hooks/player/use-favorite';
       
-      import addSong from '@/components/AddSong/addSong';
 
 
       const store = usePlayerStore();

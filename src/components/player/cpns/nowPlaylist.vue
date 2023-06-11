@@ -85,7 +85,7 @@ import { ref, computed, nextTick, watch } from 'vue';
       import usePlayMode from '@/hooks/player/use-playMode';
       import useFavorite from '@/hooks/player/use-favorite';
       
-      import addSong from '@/components/AddSong/addSong.vue';
+      import addSong from '@/components/AddSong/addSong';
 
 
       const store = usePlayerStore();

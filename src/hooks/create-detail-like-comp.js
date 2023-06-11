@@ -42,7 +42,7 @@ export default function createDetailComponent(data, key, fetch) {
             console.log('props.singer', data)
             const res = await fetch(computedDataVal.id);
             loading.value = false;
-            // console.log(res);
+            console.log('compu', res);
             songs.value = res.songs;
         }
     }, { immediate: true })

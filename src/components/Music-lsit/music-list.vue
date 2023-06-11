@@ -57,7 +57,7 @@ import { useRouter } from 'vue-router';
 import useShowCpnsStore from '@/store/modules/showComonents'
 import usePlayerStore from '@/store/modules/player';
 import useGetSongData from '@/hooks/useGetSongData';
-import { getSongDetail, getSongUrl } from '@/services/api/song'
+import useSearchHistory from '@/hooks/use-search-history';
         const RESERVED_HEIGHT = 40
         let bgImageHeight = ref(0);
         let isTop = false;
@@ -144,6 +144,8 @@ import { getSongDetail, getSongUrl } from '@/services/api/song'
 
 
         const { getSongData } = useGetSongData()
+        const { savePlay } = useSearchHistory()
+
 
         onMounted(() => {
             // console.log('bgImage.value',bgImage.value.clientHeight)
@@ -185,6 +187,7 @@ import { getSongDetail, getSongUrl } from '@/services/api/song'
                 list: currentSongs.value, 
                 index
             })
+            savePlay(song)
             // console.log(playerStore.playlist)
         }
     function onRandom() {

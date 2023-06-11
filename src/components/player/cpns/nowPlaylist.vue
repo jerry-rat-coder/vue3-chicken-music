@@ -69,7 +69,7 @@
           confirm-btn-text="清空"
           @confirm="onConfirm"
         ></confirm>
-        <!-- <add-song ref="addSongRef"></add-song> -->
+        <add-song ref="addSongRef"></add-song>
       </div>
     </transition>
   </teleport>
@@ -84,6 +84,8 @@ import { ref, computed, nextTick, watch } from 'vue';
       import usePlayerStore from '@/store/modules/player';
       import usePlayMode from '@/hooks/player/use-playMode';
       import useFavorite from '@/hooks/player/use-favorite';
+      
+      import addSong from '@/components/AddSong/addSong.vue';
 
 
       const store = usePlayerStore();
@@ -93,6 +95,7 @@ import { ref, computed, nextTick, watch } from 'vue';
       const listRef = ref(null);
       const scrollRef = ref(null);
       const confirmRef = ref(null);
+      const addSongRef = ref(null);
 
       const sequenceList = computed(() => {
           return store.sequenceList;
@@ -199,6 +202,9 @@ import { ref, computed, nextTick, watch } from 'vue';
       //   // store.commit('setting/setVisibleConfirm', true);
       //       confirmRef.value.show();
       // }
+      function showAddSong() {
+        addSongRef.value.show()
+      }
 
     defineExpose({
       show,

@@ -1,5 +1,5 @@
 import { save, remove, clear } from '@/utils/array-store'
-import { SEARCH_KEY } from '@/utils/constant'
+import { SEARCH_KEY, PLAY_KEY } from '@/utils/constant'
 // import { useStore } from 'vuex'
 import usePlayerStore from '@/store/modules/player'
 
@@ -10,11 +10,18 @@ export default function useSearchHistory() {
 
     function saveSearch(query) {
         const searches = save(query, SEARCH_KEY, (item) => {
-            return item === query
-        }, maxLen)
-        console.log('saveSearch', searches)
+                return item === query
+            }, maxLen)
+            // console.log('saveSearch', searches)
         store.setSearchHistory(searches)
             // store.commit('setSearchHistory', searches)
+    }
+
+    function savePlay(song) {
+        const songs = save(song, PLAY_KEY, (item) => {
+            return item.id === song.id
+        }, maxLen)
+        store.setPlayHistory(songs)
     }
 
     function deleteSearch(query) {
@@ -36,6 +43,7 @@ export default function useSearchHistory() {
     return {
         saveSearch,
         deleteSearch,
-        clearSearch
+        clearSearch,
+        savePlay
     }
 }

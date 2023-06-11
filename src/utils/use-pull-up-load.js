@@ -26,6 +26,7 @@ export default function usePullUpLoad(requestData, preventPullUpLoad) {
                 return
             }
             isPullUpLoad.value = true
+                // console.log('???')
             await requestData()
             scrollVal.finishPullUp()
             scrollVal.refresh()

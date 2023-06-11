@@ -4,10 +4,22 @@
           <main-header />
           <tab/>
         </div>
+
         <div class="content">
           <router-view></router-view>
         </div>
       </div>
+      <router-view
+        :style="viewStyle"
+        name="user"
+        v-slot="{ Component }"
+      >
+        <transition appear name="slide">
+          <keep-alive>
+            <component :is="Component"/>
+          </keep-alive>
+        </transition>
+      </router-view>
       <player></player>
       <!-- <singer-detail></singer-detail> -->
 </template>
@@ -21,15 +33,25 @@
   import  useShowCpnsStore  from '@/store/modules/showComonents'
   import useReachBottom from './hooks/useReachBottom';
 
-  import { onMounted, watch } from 'vue'
+  import { computed, onMounted, watch } from 'vue'
   import { storeToRefs } from 'pinia';
   import { useRoute } from 'vue-router';
+  import usePlayerStore from './store/modules/player';
     //自适应
     let fontSize;
     let lastTouchY = 0;
+
     const route = useRoute();
     const showCpnsStore = useShowCpnsStore();
+    const store = usePlayerStore();
+
+
     const { isShowTab } = storeToRefs(showCpnsStore);
+
+
+    const viewStyle = computed(() => {
+      return store.viewStyle;
+    })
     // const  isReachBottom  = useReachBottom(() => {});
     // watch(isReachBottom, () => {
       
@@ -40,6 +62,8 @@
         window.removeEventListener('resize', response);
         // console.log(route.params)
     })
+
+
     function response() {
       let wei = parseInt(window.innerWidth);
       console.log(wei)

@@ -23,13 +23,17 @@ const props = defineProps({
         visible.value = true
         if(timer)clearTimeout(timer)
         timer = setTimeout(() => {
-        hide()
-        }, delay)
+          hide()
+        }, props.delay)
     }
     function hide() {
         clearTimeout(timer)
         visible.value = false
     }
+    defineExpose({
+        show,
+        hide
+    })
 </script>
 
 <style scoped lang="less">

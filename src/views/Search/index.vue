@@ -87,7 +87,7 @@
     const searchHistory = computed(() => store.searchHistory)
 
 
-    const { saveSearch, deleteSearch, clearSearch } = useSearchHistory()
+    const { saveSearch, deleteSearch, clearSearch, savePlay } = useSearchHistory()
 
     getHotKeys().then(res => {
         hotKeys.value = res.result.hots;
@@ -100,6 +100,8 @@
     }
     function onSelectSong(song) {
         saveSearch(query.value)
+        savePlay(song)
+        
         store.addSong(song)
     //   store.dispatch('addSong', song);
     }

@@ -14,8 +14,8 @@ const Album = () =>
     import ('@/views/Album/index.vue' /* webpackChunkName: "album" */ )
 const TopDetail = () =>
     import ('@/views/Rank/index.vue' /* webpackChunkName: "top-detail" */ )
-    // const UserCenter = () =>
-    //     import ('@/views/UserCenter/user-center.vue' /* webpackChunkName: "user-center" */ )
+const UserCenter = () =>
+    import ('@/views/UserCenter/index.vue' /* webpackChunkName: "user-center" */ )
 
 const routes = [{
         path: '/',
@@ -65,12 +65,12 @@ const routes = [{
         //     component: SingerDetail
         // }]
     },
-    // {
-    //     path: '/user',
-    //     components: {
-    //         user: UserCenter
-    //     }
-    // }
+    {
+        path: '/user',
+        components: {
+            user: UserCenter
+        }
+    }
 ]
 
 const router = createRouter({

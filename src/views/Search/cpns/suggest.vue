@@ -5,6 +5,7 @@
     ref="rootRef"
   >
     <ul class="suggest-list">
+      <!-- li{$}*100 -->
       <li
         class="suggest-item"
         v-for="song in songs"
@@ -20,6 +21,7 @@
           </p>
         </div>
       </li>
+      
       <div
         class="suggest-item"
       ></div>
@@ -62,14 +64,15 @@
     // const pullUpLoading = computed(() => {
     //     return hasMore.value && isPullUpLoad.value
     // })
-    const {isPullUpLoad, rootRef, scroll} = usePullUpLoad(searchMore, preventPullUpLoad);
+    const {isPullUpLoad, rootRef, scroll} = usePullUpLoad(searchFirst, preventPullUpLoad);
     const { getSongData } = useGetSongData()
 
     watch(() => props.query, async (newQuery) => {
         if(!newQuery)return;
-        await nextTick()
+        // await nextTick()
         // await makeItScrollable()
         await searchFirst();
+        await nextTick()
     })
 
     async function searchFirst() {
@@ -79,7 +82,7 @@
 
         page.value = 1
         songs.value = []
-
+        console.log('research')
         const res = await getSuggest(props.query, page.value)
         console.log('res',res);
         songs.value = await Promise.all(res.result.songs.map(async (item) => {
@@ -91,7 +94,8 @@
         hasMore.value = true 
         checkMore(res.result)
         await nextTick()
-        await makeItScrollable()
+        scroll.value.refresh()
+        // await makeItScrollable()
     }
     async function searchMore() {
         if(!props.query || !hasMore.value){

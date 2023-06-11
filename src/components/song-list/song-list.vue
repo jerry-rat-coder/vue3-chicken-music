@@ -48,6 +48,7 @@ import { ref,toRefs,watch } from 'vue';
         // return 'yys'
         // return `${song.al.name} · ${song.ar[0].name}`
         let songers = [];
+        console.log(song)
         for (let i = 0; i < song.singer.length; i++) {
             songers.push(song.singer[i].name);
         }
@@ -55,7 +56,7 @@ import { ref,toRefs,watch } from 'vue';
         return `${songers.join(",")} ∘ ${song.al.name}`;
     }
     function selectItem(song, index) {
-        console.log(song, index)
+        // console.log(song, index)
         emit('selectItem', { song, index });
     }
 

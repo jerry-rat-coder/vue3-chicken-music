@@ -26,7 +26,6 @@
                   >
                     <div class="icon">
                       <img width="60" height="60" v-lazy="item.picUrl">
-                      <!-- <img v-else src="@/assets/img/default.png"  width="60" height="60"> -->
                     </div>
                     <div class="text">
                       <h2 class="name">
@@ -50,8 +49,6 @@
 </template>
 
 <script setup>
-import mainHeader from '@/components/Header/main-header.vue';
-import tab from '@/components/tab/tab.vue';
 import { getRecommend, getAlbumList } from '@/services/api/recommend';
 import Scroll from '@/components/Scroll/Scroll.vue'
 import { computed, ref } from 'vue';

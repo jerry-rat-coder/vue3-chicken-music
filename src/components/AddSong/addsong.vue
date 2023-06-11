@@ -70,39 +70,33 @@
 <script setup>
     import searchInput from '@/views/Search/cpns/search-input.vue';
     import suggest from '@/views/Search/cpns/suggest.vue';
-    import switches from '@/components/Switch/switches';
+    import switches from '@/components/Switch/switches.vue';
     import Scroll from '@/components/Scroll/Scroll.vue'
-    import songList from '@/components/song-list/song-list'
+    import songList from '@/components/song-list/song-list.vue'
     import SearchList from '@/components/SearchList/search-list.vue'
     import Message from '@/components/Message/message.vue'
+
+
     import { ref, computed, nextTick, watch } from 'vue'
     //   import { useStore } from 'vuex'
+    // import usePlayerStore from '@/store/modules/player';
     import usePlayerStore from '@/store/modules/player';
+
+
     import useSearchHistory from '@/hooks/use-search-history'
 
-//   export default {
-//     name: 'add-song',
-//     components: {
-//       SearchInput,
-//       Suggest,
-//       Switches,
-//       Scroll,
-//       SongList,
-//       SearchList,
-//       Message
-//     },
-    // setup() {
+
       const visible = ref(false)
       const query = ref('')
       const currentIndex = ref(0)
       const scrollRef = ref(null)
       const messageRef = ref(null)
 
-      const store = useStore()
-      const searchHistory = computed(() => store.state.searchHistory)
-      const playHistory = computed(() => store.state.playHistory)
+      const store = usePlayerStore()
+      const searchHistory = computed(() => store.searchHistory)
+      const playHistory = computed(() => store.playHistory)
 
-      const { saveSearch } = useSearchHistory()
+      const { saveSearch, savePlay } = useSearchHistory()
 
       watch(query, async () => {
         await nextTick()
@@ -130,6 +124,7 @@
 
       function selectSongBySongList({ song }) {
         addSong(song)
+        savePlay(song)
       }
 
       function selectSongBySuggest(song) {
@@ -138,30 +133,20 @@
       }
 
       function addSong(song) {
-        store.dispatch('addSong', song)
+        // store.dispatch('addSong', song)
+        store.addSong(song);
         showMessage()
       }
 
       function showMessage() {
         messageRef.value.show()
       }
+      defineExpose({
+        show,
+        hide
+      })
 
-//       return {
-//         visible,
-//         query,
-//         scrollRef,
-//         messageRef,
-//         currentIndex,
-//         searchHistory,
-//         playHistory,
-//         show,
-//         hide,
-//         addQuery,
-//         selectSongBySongList,
-//         selectSongBySuggest
-//       }
-//     }
-//   }
+
 </script>
 
 <style lang="less" scoped>

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import shuffle from "@/utils/utils";
-import { PLAY_MODE, FAVORITE_KEY, SEARCH_KEY } from "@/utils/constant";
+import { PLAY_MODE, FAVORITE_KEY, SEARCH_KEY, PLAY_KEY } from "@/utils/constant";
 import { load } from "@/utils/array-store";
 const usePlayerStore = defineStore('playerStore', {
     state: () => {
@@ -13,12 +13,19 @@ const usePlayerStore = defineStore('playerStore', {
             currentIndex: 0,
             fullScreen: false,
             favoriteList: load(FAVORITE_KEY),
-            searchHistory: load(SEARCH_KEY)
+            searchHistory: load(SEARCH_KEY),
+            playHistory: load(PLAY_KEY)
         }
     },
     getters: {
         currentSong: (state) => {
             return state.playlist[state.currentIndex] || {};
+        },
+        viewStyle: (state) => {
+            const bottom = state.playlist.length ? '60px' : '0'
+            return {
+                bottom
+            }
         }
     },
     actions: {

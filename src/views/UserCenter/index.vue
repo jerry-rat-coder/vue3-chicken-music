@@ -24,7 +24,7 @@
         <div class="list-inner">
           <song-list
             :songs="favoriteList"
-            @select="selectSong"
+            @select-item="selectSong"
           >
           </song-list>
         </div>
@@ -33,7 +33,7 @@
         <div class="list-inner">
           <song-list
             :songs="playHistory"
-            @select="selectSong"
+            @select-item="selectSong"
           >
           </song-list>
         </div>
@@ -53,7 +53,8 @@
     import usePlayerStore from '@/store/modules/player'
     import useSearchHistory from '@/hooks/use-search-history'
     import useShowCpnsStore from '@/store/modules/showComonents'
-    import { storeToRefs } from 'pinia'
+    // import { storeToRefs } from 'pinia'
+    import { getSongUrl } from '@/services/api/song'
 
 
     const currentIndex = ref(0)
@@ -93,7 +94,8 @@
         showCpnsStore.setIsShowTab(true)
         router.back()
       }
-      function selectSong({ song }) {
+      async function selectSong({ song }) {
+        song.songUrl = await getSongUrl(song.id)
         store.addSong(song)
         savePlay(song)
       }

@@ -41,7 +41,7 @@
     })
     const emit = defineEmits(['selectSong', 'selectSinger'])
     // const store = usePlayerStore();
-    const page = ref(1);
+    const page = ref(0);
     const songs = ref([]);
     
     const hasMore = ref(true)
@@ -80,7 +80,7 @@
             return;
         }
 
-        page.value = 1
+        page.value = 0
         songs.value = []
         console.log('research')
         const res = await getSuggest(props.query, page.value)

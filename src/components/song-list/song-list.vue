@@ -48,7 +48,7 @@ import { ref,toRefs,watch } from 'vue';
         // return 'yys'
         // return `${song.al.name} · ${song.ar[0].name}`
         let songers = [];
-        console.log(song)
+        // console.log(song)
         for (let i = 0; i < song.singer.length; i++) {
             songers.push(song.singer[i].name);
         }

@@ -95,7 +95,9 @@
         router.back()
       }
       async function selectSong({ song }) {
-        song.songUrl = await getSongUrl(song.id)
+        const result = await getSongUrl(song.id);
+        song.songUrl = result.data[0].url;
+        // console.log('喜欢', song.songUrl)
         store.addSong(song)
         savePlay(song)
       }

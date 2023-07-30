@@ -7,7 +7,8 @@ export function getSingerList() {
 }
 
 export function getSingerDetail(id) {
-    console.log('id', id)
+    console.log('傻逼singer id', id)
         // return get(`/artist/songs?id=${id}&limit=100`)
-    return get(`/artist/songs?id=${id}&limit=100`)
+        //3684 林俊杰
+    return get(`/artist/songs?id=${id}`)
 }

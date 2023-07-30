@@ -2,7 +2,7 @@ import axios from "axios"
 import {get } from "../request/index"
 
 const qq = axios.create({
-    baseURL: 'https://music-backend-rho.vercel.app',
+    baseURL: 'https://music-backend-peach.vercel.app/',
     timeout: 5000
 })
 

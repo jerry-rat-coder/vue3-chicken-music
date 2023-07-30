@@ -4,11 +4,12 @@ import {get } from '../request/index'
 //     baseURL: 'https://service-f23fl8wz-1318570863.bj.apigw.tencentcs.com/release',
 //     timeout: 5000
 // })
+//85680488
 
 
 export function getSongDetail(id) {
 
-    return get(`/song/detail?id=${id}`)
+    return get(`/song/detail?ids=${id}`)
 
 }
 
@@ -19,6 +20,7 @@ export function getSongUrl(id) {
 }
 
 export function getSongLyric(id) {
+
 
     return get(`/lyric?id=${id}`)
 

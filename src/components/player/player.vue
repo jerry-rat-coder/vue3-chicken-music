@@ -177,7 +177,6 @@ const duration = computed(() => {
   const mm = parseInt(tim.slice(0, 2));
   const ss = parseInt(tim.slice(3, 5));
   return mm * 60 + ss;
-  return 0;
 })
 const progress = computed(() => {
   // console.log(currentTime.value )
@@ -190,11 +189,18 @@ const playing = computed(() => {
 
 //hooks
 const { fullScreen,audioRef, currentIndex, playIcon,disableCls,miniMode,onError,onLoop,onNext,onPause,onPrev,onReady,onTogglePlaying,onEnd } = usePlay({ songReady, playing });
+
 const { playMode, playModeIcon, toggleMode } = usePlayMode();
+
 const { getFavoriteIconBySong, toggleFavor  } = useFavorite();
+
 const { cdRef, cdImgRef ,cdCls } = useCd();
+
 const { currentLyric, currentLyricLineNum, pureMusicLyric, playLyric, playingLyric, stopLyric, lyricScrollRef, lyricListRef } = useLyric({ songReady ,currentTime, playing });
+
 const { currentShow, middleLStyle, middleRStyle, onTouchMiddleStart, onTouchMiddleMove, onTouchMiddleEnd } = useMiddleInteractive();
+
+
 const { cdWrapperRef, enter, afterEnter, leave, afterLeave  } = useAnimation();
 
 // //标记是否正在拖动 修复拖动自动复原bug

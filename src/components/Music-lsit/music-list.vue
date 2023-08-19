@@ -168,7 +168,7 @@ import useSearchHistory from '@/hooks/use-search-history';
             // console.log(arr)
             // songs.value = arr;
             
-            console.log(currentSongs.value);
+            // console.log(currentSongs.value);
             // console.log(songs.value)
           })
 

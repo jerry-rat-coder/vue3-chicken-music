@@ -69,12 +69,12 @@ import { useRouter } from 'vue-router';
     //     return res;
     // })
     getRecommend().then(res => {
-        console.log('bannerResult',res);
+        // console.log('bannerResult',res);
         images.value = res.banners;
         // albums.value = res.albums;
     })
     getAlbumList().then(res => {
-      console.log('albumsData',res);
+      // console.log('albumsData',res);
       albums.value = res.result;
     })
     

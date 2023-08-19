@@ -6,7 +6,13 @@
         </div>
 
         <div class="content">
-          <router-view></router-view>
+          <router-view 
+          v-slot="{ Component }" 
+          name="music">
+          <keep-alive>
+            <component :is="Component"/>
+          </keep-alive>
+        </router-view>
         </div>
       </div>
       <router-view
@@ -18,6 +24,7 @@
           <keep-alive>
             <component :is="Component"/>
           </keep-alive>
+          
         </transition>
       </router-view>
       <player></player>
@@ -66,10 +73,10 @@
 
     function response() {
       let wei = parseInt(window.innerWidth);
-      console.log(wei)
+
       fontSize = wei / 20;
       document.documentElement.style.fontSize = fontSize + 'px';
-      console.log('font-size',document.documentElement.style.fontSize)
+      // console.log('font-size',document.documentElement.style.fontSize)
     }
     // function onTouchmove(event) {
     //   let currentTouchY = event.touches[0].clientY;

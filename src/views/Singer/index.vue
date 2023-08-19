@@ -2,6 +2,7 @@
     <div class="Singer">
         <index-list :singer-list="singerList" @select-singer="onSelectSinger"/> 
     </div>
+    
     <router-view v-slot="{ Component }">
       <transition appear name="slide">
         <component :is="Component" :data="selectedSinger"></component>
@@ -31,7 +32,7 @@ import useShowCpnsStore from "@/store/modules/showComonents";
 
     getSingerList().then(res => {
       // console.log(res.artists);
-      console.log(res.artists)
+      // console.log(res.artists)
       initSingerList(res.artists);
     })
 
@@ -126,7 +127,7 @@ import useShowCpnsStore from "@/store/modules/showComonents";
       return hot.concat(ret);
     }
     async function onSelectSinger(singer) {
-      console.log(singer)
+      // console.log(singer)
       storage.session.set(SINGER_KEY, singer);
       // const res = await getSingerDetail(singer.id);
       // console.log(res);

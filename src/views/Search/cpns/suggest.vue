@@ -82,14 +82,14 @@
 
         page.value = 0
         songs.value = []
-        console.log('research')
+        // console.log('research')
         const res = await getSuggest(props.query, page.value)
-        console.log('res',res);
+        // console.log('res',res);
         songs.value = await Promise.all(res.result.songs.map(async (item) => {
             const ret = await getSongData(item.id)
             return ret
         }))
-        console.log(songs.value)
+        // console.log(songs.value)
 
         hasMore.value = true 
         checkMore(res.result)

@@ -8,7 +8,7 @@
         <div class="content">
           <router-view 
           v-slot="{ Component }" 
-          name="music">
+          >
           <keep-alive>
             <component :is="Component"/>
           </keep-alive>

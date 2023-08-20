@@ -17,6 +17,7 @@
                     width="40"
                     height="40"
                     :class="cdCls"
+                    class="image"
                     >
                   </template>
                 </div>
@@ -144,6 +145,9 @@ const { cdRef, cdImgRef, cdCls } = useCd();
       .cd {
         height: 100%;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         img {
           border-radius: 50%;
           &.playing {

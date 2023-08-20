@@ -54,6 +54,9 @@ const dashOffset = computed(() => {
 <style lang="less" scoped>
 .progress-circle {
     position: relative;
+    // height: 60px;
+    // top: 10px;
+    // border-color: @color-theme-d;
         circle {
         stroke-width: .4571rem;
         transform-origin: center;
@@ -66,5 +69,6 @@ const dashOffset = computed(() => {
             stroke: @color-theme;
         }
     }
+
 }
 </style>

@@ -43,7 +43,7 @@
             <div class="control">
                 <progress-circle
                 :progress="props.progress"
-                :radius="32"
+                :radius="36"
                 >
                 <i 
                 class="icon-mini"

@@ -294,3 +294,15 @@ import useSearchHistory from '@/hooks/use-search-history';
     z-index: 10 !important;
 }
 </style>
+<!-- 你提到的适配问题可能与 iOS 上的硬件加速有关。在某些情况下，图像或其他元素可能会在 iOS 设备上渲染得不清晰或存在闪烁问题。通过触发硬件加速，可以改善渲染性能和外观。
+
+这里的解决方案是使用 translateZ(1px) 或类似的 3D 变换。这会使浏览器将元素提升到自己的合成层，并利用 GPU 进行渲染，从而提供更流畅的动画和更清晰的渲染。代码示例如下：
+
+css
+Copy code
+.your-image-selector {
+  transform: translateZ(1px);
+}
+请注意，不必滥用硬件加速，因为它可能会增加 GPU 的负担并消耗更多的电池。只有在遇到性能或渲染问题时才应该使用这种技巧。
+
+此外，强制硬件加速可能会带来其他副作用和兼容性问题。因此，在使用此解决方案时，最好在多种设备和浏览器上进行广泛测试。 -->

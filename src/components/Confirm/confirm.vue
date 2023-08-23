@@ -82,13 +82,13 @@
     z-index: 998;
     background-color: @color-background-d;
     &.confirm-fade-enter-active {
-      animation: confirm-fadein .3s;
+      animation: confirm-fadein .5s;
       .confirm-content {
         animation: confirm-zoom-in .3s;
       }
     }
     &.confirm-fade-leave-active {
-      animation: confirm-fadeout .3s;
+      animation: confirm-fadeout .5s;
       .confirm-content {
         animation: confirm-zoom-out .3s;
       }
@@ -143,9 +143,11 @@
 
   @keyframes confirm-fadein {
     0% {
+      backdrop-filter: blur(10px);
       opacity: 0;
     }
     100% {
+      backdrop-filter: blur(0px);
       opacity: 1;
     }
   }

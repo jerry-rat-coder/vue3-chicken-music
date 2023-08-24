@@ -12,7 +12,8 @@
                 >
                   <template v-if="currentSong.al">
                     <img 
-                    :src="currentSong.al.picUrl" 
+                    alt="miniCd"
+                    v-lazy="currentSong.al.picUrl" 
                     ref="cdImgRef"
                     width="40"
                     height="40"

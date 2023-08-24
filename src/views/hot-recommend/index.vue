@@ -11,7 +11,7 @@
               <div class="swipe-contain">
                   <van-swipe :autoplay="3000" lazy-render>
                       <van-swipe-item v-for="image in images" :key="image">
-                          <img :src="image.imageUrl" />
+                          <img v-lazy="image.imageUrl" alt="swipe" />
                       </van-swipe-item>
                   </van-swipe>
               </div>
@@ -25,7 +25,7 @@
                     @click="selectItem(item)"
                   >
                     <div class="icon">
-                      <img width="60" height="60" v-lazy="item.picUrl">
+                      <img width="50" height="50" v-lazy="item.picUrl" alt="hot">
                     </div>
                     <div class="text">
                       <h2 class="name">

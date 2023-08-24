@@ -13,6 +13,7 @@
               width="100"
               height="100"
               v-lazy="item.imgUrl"
+              alt="top"
             />
           </div>
           <ul class="song-list">

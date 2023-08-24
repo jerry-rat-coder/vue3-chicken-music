@@ -18,7 +18,7 @@
         >
           <div class="background">
             <template v-if="currentSong.al">
-             <img :src="currentSong.al.picUrl">
+             <img v-lazy="currentSong.al.picUrl" alt="player" >
             </template>
           </div>
           <div class="top">
@@ -56,7 +56,9 @@
                     ref="cdImgRef"
                     class="image"
                     :class="cdCls"
-                    :src="currentSong.al.picUrl" />
+                    v-lazy="currentSong.al.picUrl"
+                    alt="cd"
+                    />
                   </template>
                 </div>
               </div>

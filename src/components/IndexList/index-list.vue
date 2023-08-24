@@ -7,7 +7,7 @@
                 <template v-for="item in group.items" :key="item.id" >
                     <van-cell @click="onClick(item)">
                         <div class="singer">
-                            <img v-lazy="item.avatar" >
+                            <img v-lazy="item.avatar" alt="avatar" >
                             <div class="text">{{ item.name }}</div>
                         </div>
                         </van-cell>

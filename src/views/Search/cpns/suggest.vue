@@ -35,7 +35,7 @@
     import { getSuggest } from '@/services/api/search'
     import useGetSongData from '@/hooks/useGetSongData';
     import usePullUpLoad from '@/utils/use-pull-up-load'
-    
+    import { debounce } from '@/utils/utils';
     const props = defineProps({
         query: String
     })
@@ -67,13 +67,13 @@
     const {isPullUpLoad, rootRef, scroll} = usePullUpLoad(searchFirst, preventPullUpLoad);
     const { getSongData } = useGetSongData()
 
-    watch(() => props.query, async (newQuery) => {
+    watch(() => props.query, debounce(async (newQuery) => {
         if(!newQuery)return;
         // await nextTick()
         // await makeItScrollable()
         await searchFirst();
         await nextTick()
-    })
+    }, 700))
 
     async function searchFirst() {
         if(!props.query){

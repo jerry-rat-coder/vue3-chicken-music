@@ -23,3 +23,27 @@ export function formatTime(interval) {
     const second = (interval % 60 + '').padStart(2, '0')
     return `${minute}:${second}`
 }
+
+export function throttle(func, delay) {
+    let last = 0;
+    
+    return (...args) => {
+        let now = Date.now();
+        
+        if(now - last >= delay) {
+            last = now;
+            func.apply(this, args);
+        }
+    }
+}
+
+export function debounce(func, timing){
+    let timer = null;
+
+    return (...args) => {
+        timer = null;
+        timer = setTimeout(() => {
+            func.apply(this, args);
+        }, timing);
+    }
+}

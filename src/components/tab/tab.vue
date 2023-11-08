@@ -49,6 +49,5 @@ import {useRoute, useRouter} from 'vue-router'
   height:44px;
   line-height: 2.5143rem;
   font-size: @font-size-medium;
-    
 }
 </style>

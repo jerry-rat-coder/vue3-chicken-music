@@ -12,6 +12,7 @@
 <script setup>
 import { getAlbum } from '@/services/api/disc';
 import { ALBUM_KEY } from '@/utils/constant'
+import musicList from '@/components/Music-lsit/music-list.vue';
 import createDetailComponent from '@/hooks/create-detail-like-comp'
 const props = defineProps({
       data: {

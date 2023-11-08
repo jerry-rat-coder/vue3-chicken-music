@@ -21,7 +21,7 @@ export default function useMiniSlider() {
 
     onMounted(() => {
         let sliderVal
-        watch(sliderShow, async(newSliderShow) => {
+        watch(sliderShow, async (newSliderShow) => {
             if (newSliderShow) {
                 await nextTick()
                 if (!sliderVal) {

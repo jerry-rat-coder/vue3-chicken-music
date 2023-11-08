@@ -190,6 +190,14 @@ const playing = computed(() => {
 //vuex store
 
 //hooks
+// usePlay：负责播放、暂停逻辑。
+// usePlayMode：管理播放模式（顺序、随机、单曲循环）。
+// useFavorite：管理用户收藏歌曲的逻辑。
+// useCd：管理CD图的旋转和切换逻辑。
+// useLyric：获取和显示歌词。
+// useAnimation：处理所有的动画逻辑，包括CD图的过渡动画。
+
+
 const { fullScreen,audioRef, currentIndex, playIcon,disableCls,miniMode,onError,onLoop,onNext,onPause,onPrev,onReady,onTogglePlaying,onEnd } = usePlay({ songReady, playing });
 
 const { playMode, playModeIcon, toggleMode } = usePlayMode();
@@ -202,7 +210,7 @@ const { currentLyric, currentLyricLineNum, pureMusicLyric, playLyric, playingLyr
 
 const { currentShow, middleLStyle, middleRStyle, onTouchMiddleStart, onTouchMiddleMove, onTouchMiddleEnd } = useMiddleInteractive();
 
-
+// import {} from '@/'
 const { cdWrapperRef, enter, afterEnter, leave, afterLeave  } = useAnimation();
 
 // //标记是否正在拖动 修复拖动自动复原bug

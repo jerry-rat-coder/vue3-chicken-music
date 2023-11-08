@@ -59,14 +59,6 @@ export default function useLyric({ songReady, currentTime, playing }) {
     })
     watch(playing, async(newPlaying) => {
         if (newPlaying) {
-            // stopLyric();
-
-            // currentLyric.value = null;
-            // currentTime.value = 0;
-            // pureMusicLyric.value = '';
-            // playingLyric.value = '';
-            // const lyric = await getLyric(currentSong.value);
-
             playLyric();
         } else {
             stopLyric();

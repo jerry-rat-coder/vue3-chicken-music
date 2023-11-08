@@ -7,12 +7,12 @@
 
         <div class="content">
           <router-view 
-          v-slot="{ Component }" 
+            v-slot="{ Component }" 
           >
-          <keep-alive>
-            <component :is="Component"/>
-          </keep-alive>
-        </router-view>
+            <keep-alive>
+              <component :is="Component"/>
+            </keep-alive>
+          </router-view>
         </div>
       </div>
       <router-view

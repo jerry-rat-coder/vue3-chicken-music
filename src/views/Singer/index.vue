@@ -48,13 +48,7 @@ import useShowCpnsStore from "@/store/modules/showComonents";
         arr[i].findIndex = tempIndex[0].toUpperCase();
       }
 
-      // console.log(arr);
-
-      // this.singerList = arr;
-
       singerList.value = _normalizeSinger(arr)
-
-      // console.log(this.singerList);
       
     }
     function _normalizeSinger(list) {

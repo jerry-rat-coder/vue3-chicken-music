@@ -37,13 +37,18 @@ export function throttle(func, delay) {
     }
 }
 
-export function debounce(func, timing){
+export function debounce(func, timing) {
     let timer = null;
 
-    return (...args) => {
-        timer = null;
+    return function(...args) {
+        if (timer !== null) {
+            clearTimeout(timer);
+        }
+
         timer = setTimeout(() => {
             func.apply(this, args);
         }, timing);
     }
 }
+
+

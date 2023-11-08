@@ -3,10 +3,10 @@
       <!-- <Loading></Loading> -->
 
           <Scroll 
-        class="recommend-content" 
-        :v-show="!loading"
-        v-loading="loading"
-        >
+            class="recommend-content" 
+            :v-show="!loading"
+            v-loading="loading"
+            >
             <div>
               <div class="swipe-contain">
                   <van-swipe :autoplay="3000" lazy-render>

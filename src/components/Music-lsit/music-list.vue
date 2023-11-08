@@ -153,11 +153,9 @@ import useSearchHistory from '@/hooks/use-search-history';
             maxTranslateY.value = bgImageHeight.value - RESERVED_HEIGHT;
         })
 
-        watch(songs,async () => {
+        watch(songs, async () => {
             // let arr = [];
             const songsVal = songs.value;
-            // console.log('123', songs.value)
-            // console.log('props.songs',props.songs);
             if(songsVal.length) {
                 const arr = await Promise.all(songsVal.map(async (item) => {
                     return await getSongData(item.id);

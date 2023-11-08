@@ -31,10 +31,10 @@ export default defineConfig({
         preprocessorOptions: {
             less: {
                 additionalData: `
-            @import "@/assets/css/variable.less";
-            @import "@/assets/css/icon.less";
-            @import "@/assets/css/mixin.less";
-          `
+                  @import "@/assets/css/variable.less";
+                  @import "@/assets/css/icon.less";
+                  @import "@/assets/css/mixin.less";
+                `
             }
         }
     },

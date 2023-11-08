@@ -30,6 +30,8 @@ export default function createDetailComponent(data, key, fetch) {
             // console.log(cached)
             if (cached && (cached.id + '') === route.params.id) {
                 res = cached;
+            } else {
+              
             }
         }
         return res;

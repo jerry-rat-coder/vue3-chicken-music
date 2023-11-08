@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-// import musicList from '@/components/Music-lsit/music-list.vue';
+import musicList from '@/components/Music-lsit/music-list.vue';
 import { getSingerDetail } from '@/services/api/singer';
 import { SINGER_KEY } from '@/utils/constant'
 import createDetailComponent from '@/hooks/create-detail-like-comp';
